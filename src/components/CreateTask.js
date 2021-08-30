@@ -9,6 +9,11 @@ const format = "HH:mm";
 const { Option } = Select;
 
 function CreateTask(props) {
+  const submitHandler = (e) => {
+    e.preventDefault();
+    props.setVisible(false);
+  };
+
   function handleChange(value) {
     console.log(`selected ${value}`);
   }
@@ -81,7 +86,8 @@ function CreateTask(props) {
             background: "lightgreen",
             color: "white",
           }}
-          onClick={() => props.setVisible(false)}
+          type="submit"
+          onClick={submitHandler}
         >
           save
         </Button>
