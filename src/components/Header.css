@@ -1,0 +1,48 @@
+.header {
+  max-width: 400px;
+  height: 40px;
+  border: 2px solid rgb(190, 188, 188);
+  border-top-left-radius: 5px;
+
+  background-color: white;
+  color: black;
+}
+.headerFiles {
+  display: flex;
+  padding: 10px;
+}
+.headerFiles span {
+  min-width: 300px;
+}
+.addIcon button {
+  float: right;
+  margin-left: 55px;
+  border: 2px solid rgb(197, 195, 195);
+  padding: 8px 9.8px 4px 8px;
+  background-color: white;
+  margin-top: -11px;
+}
+.createForm {
+  margin-top: -10px;
+  min-height: 250px;
+  min-width: 400px;
+  border-bottom-left-radius: 5px;
+
+  border: 2px solid rgb(179, 178, 178);
+  background-color: rgb(216, 238, 245);
+}
+.createLists {
+  padding: 20px;
+}
+.taskDescription {
+  padding: 10px;
+}
+.taskInput {
+  padding-bottom: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+.btn {
+  border-radius: 10px;
+  color: white;
+}
