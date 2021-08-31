@@ -2,16 +2,26 @@ import React, { useState } from "react";
 import { GrAdd } from "react-icons/gr";
 import AddTask from "./AddTask";
 import CreateTask from "./CreateTask";
+import { useSelector } from "react-redux";
 import "./Header.css";
 function Header() {
   const [visible, setVisible] = useState(false);
-  const tasks = [
-    {
-      id: 1,
-      taskName: "Follow Up",
-      date: "14/02/2021",
-    },
-  ];
+  const tasks = useSelector((state) => state.tasks);
+  const [taskName, setTaskName] = useState();
+  const [userName, setUserName] = useState();
+  const [Dates, setDate] = useState();
+
+  function taskChange(value) {
+    setTaskName(value);
+  }
+  function userChange(value) {
+    console.log(value);
+    setUserName(value);
+  }
+  function onChange(date, dateString) {
+    console.log(date, dateString);
+    setDate(dateString);
+  }
   return (
     <div className="header">
       <div className="headerFiles">
@@ -29,14 +39,29 @@ function Header() {
       {visible && (
         <div className="createForm">
           {" "}
-          <CreateTask setVisible={setVisible} />
+          <CreateTask
+            setVisible={setVisible}
+            taskName={taskName}
+            userName={userName}
+            Dates={Dates}
+            onChange={onChange}
+            userChange={userChange}
+            taskChange={taskChange}
+          />
         </div>
       )}
       {!visible && (
         <ul className="addLists">
           {tasks.map((task) => {
             return (
-              <AddTask id={task.id} title={task.taskName} date={task.date} />
+              <AddTask
+                id={task.id}
+                title={task.title}
+                date={task.date}
+                taskName={taskName}
+                Dates={Dates}
+                setVisible={setVisible}
+              />
             );
           })}
         </ul>

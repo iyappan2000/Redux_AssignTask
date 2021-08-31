@@ -6,16 +6,16 @@ import { TimePicker } from "antd";
 import moment from "moment";
 import { useDispatch } from "react-redux";
 import { addTask } from "../redux/Slice";
-// import { addTaskAsync } from "../redux/Slice";
+
 const format = "HH:mm";
 const { Option } = Select;
 
-function CreateTask(props) {
+function EditTask(props) {
   const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    props.setVisible(false);
+    props.setEditVisible(false);
     dispatch(addTask({ title: props.taskName, date: props.Dates }));
   };
 
@@ -97,4 +97,4 @@ function CreateTask(props) {
   );
 }
 
-export default CreateTask;
+export default EditTask;
